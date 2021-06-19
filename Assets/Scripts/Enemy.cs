@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     Rigidbody rb;
     public float speed;
-    private Movement ok;
+    private Movement trigger;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        ok = GameObject.Find("Player").GetComponent<Movement>();
+        player = GameObject.Find("Player");
+        trigger = GameObject.Find("Player").GetComponent<Movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ok.isGameActive)
+        if (trigger.isGameActive)
         {
             rb.AddForce((player.transform.position - transform.position).normalized * speed * Time.deltaTime);
 

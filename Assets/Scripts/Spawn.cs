@@ -6,8 +6,10 @@ public class Spawn : MonoBehaviour
 {
     public GameObject live;
     public GameObject cake;
+    public GameObject enemy;
     public float spawnLiveSpeed;
     public float spawnCakeSpeed;
+    public float spawnEnemySpeed;
     private Vector3 setRotation = new Vector3(-90,0,0);
     public float randomRangeX;
     public float randomRangeZ;
@@ -22,6 +24,7 @@ public class Spawn : MonoBehaviour
         {
             InvokeRepeating("spawnLive", spawnLiveSpeed, spawnLiveSpeed);
             InvokeRepeating("spawnCake", spawnCakeSpeed, spawnCakeSpeed);
+            InvokeRepeating("spawnEnemy", spawnCakeSpeed, spawnCakeSpeed);
         }
     }
 
@@ -36,6 +39,11 @@ public class Spawn : MonoBehaviour
     void spawnCake()
     {
         Instantiate(cake.gameObject, spawnRandom(), transform.rotation);
+    }
+
+    void spawnEnemy()
+    {
+        Instantiate(enemy.gameObject, spawnRandom(), transform.rotation);
     }
 
     Vector3 spawnRandom()

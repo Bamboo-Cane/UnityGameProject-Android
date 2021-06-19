@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     GameObject yes;
+    public GameObject spawnManager;
     public float speed;
     public Joystick joyStick;
     public int healthCount;
@@ -141,6 +142,11 @@ public class Movement : MonoBehaviour
         if(cakeCount == winCakeCount)
         {
             moon.gameObject.SetActive(true);
+        }
+
+        if(cakeCount == winCakeCount)
+        {
+            Destroy(spawnManager.gameObject);
         }
     }
 
